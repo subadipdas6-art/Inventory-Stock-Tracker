@@ -1,9 +1,13 @@
-
 import streamlit as st
 import pandas as pd
 import sqlite3
 
-from database import connect_db
+from database import (
+    connect_db,
+    create_table,
+    create_stock_history
+)
+
 from inventory import (
     add_product,
     view_products,
@@ -14,6 +18,11 @@ from inventory import (
     stock_out,
     low_stock_products
 )
+
+# Initialize Database
+create_table()
+create_stock_history()
+
 
 # Page Configuration
 st.set_page_config(
